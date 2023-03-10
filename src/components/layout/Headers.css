@@ -4,9 +4,26 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    align-items: center;
+
 }
 
 .main__baner {
-    font-size: 2.6rem;
+    font-size: 3rem;
+    margin-left: 2.1rem;
+
+}
+
+.up__panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logging__btns {
+    margin-right: 1rem;
+
+}
+
+.logging__btns button {
+    margin-right: .5rem;
 }

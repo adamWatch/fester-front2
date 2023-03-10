@@ -1,0 +1,15 @@
+.btn {
+    font-size: 1.4rem;
+    background-color: purple;
+    color: azure;
+    padding: .5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    transition: .3s linear;
+}
+
+.btn:hover {
+    background-color: rgb(85, 4, 85);
+    transition: .3s linear;
+}
