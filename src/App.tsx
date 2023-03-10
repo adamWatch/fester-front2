@@ -12,7 +12,7 @@ import { Hobby } from './components/Hobby/Hobby';
 
 export function App() {
   return (
-    <>
+    <div className="App">
       <Headers />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,6 +22,6 @@ export function App() {
         <Route path="/recreation" element={<Recreation />} />
         <Route path="/hobby" element={<Hobby />} />
       </Routes>
-    </>
+    </div>
   );
 }
