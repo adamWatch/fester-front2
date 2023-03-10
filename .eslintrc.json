@@ -45,6 +45,7 @@
             }
         ],
         "linebreak-style": 0,
-        "import/extensions": "never"
+        "import/extensions": 0,
+        "import/no-unresolved": 0
     }
 }
