@@ -1,0 +1,11 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export function Menu() {
+  return (
+    <nav className="Menu">
+      <Link to="/">Home</Link>
+      <Link to="/Workout">Workout</Link>
+    </nav>
+  );
+}
