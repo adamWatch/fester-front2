@@ -5,7 +5,11 @@
     background: rgb(55, 16, 131);
     background: linear-gradient(34deg, rgba(55, 16, 131, 1) 16%, rgba(62, 16, 106, 1) 53%, rgba(70, 23, 125, 0.9752275910364145) 88%);
     padding: 1.4rem;
-    width: 40vw;
+    width: 500px;
+    height: 300px;
+    margin: .5rem 1rem;
+    border-radius: 10px;
+
 }
 
 /* upp panel */

@@ -1,0 +1,25 @@
+.categories_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+
+}
+
+.task_table {
+    margin: .5rem 1rem;
+    font-size: 1.3rem;
+    background: rgb(45, 13, 107);
+    background: linear-gradient(34deg, rgba(45, 13, 107, 1) 28%, rgba(44, 11, 77, 1) 67%, rgba(58, 17, 106, 0.9752275910364145) 92%);
+}
+
+.task_table td,
+th {
+    border: 1px solid black;
+    text-align: center;
+    padding: .5rem;
+}
+
+.task_table th {
+    color: yellow;
+}
