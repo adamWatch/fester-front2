@@ -51,6 +51,10 @@
     padding: .5rem;
 }
 
+.category_name span {
+    margin-right: .5rem;
+}
+
 .curr_exp_container {
     font-size: 1.6rem;
     padding: .5rem;

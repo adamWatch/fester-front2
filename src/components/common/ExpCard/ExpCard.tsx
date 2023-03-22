@@ -29,7 +29,7 @@ export function ExpCard(props:Props) {
       </div>
       <div className="down_panel">
         <h2 className="category_name">
-          {category}
+          <span>{category}</span>
           Experience
         </h2>
         <div className="exp_bar_container">
