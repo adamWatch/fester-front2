@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProgressBar } from '../ProgressBar/ProgressBar';
 
 import './ExpCard.css';
 
@@ -29,13 +30,10 @@ export function ExpCard(props:Props) {
       <div className="down_panel">
         <h2 className="category_name">
           {category}
-          {' '}
           Experience
         </h2>
         <div className="exp_bar_container">
-          <div className="exp_bar">
-            Exp Bar to implement
-          </div>
+          <ProgressBar procentOfProgressBar="19%" />
         </div>
         <div className="curr_exp_container">
           <span className="curr_exp">{currExp}</span>

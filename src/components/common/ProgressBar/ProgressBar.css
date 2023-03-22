@@ -1,0 +1,15 @@
+.progress {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 400px;
+    border: 10px solid azure;
+    border-radius: 15px;
+}
+
+.progress .color {
+    background-color: crimson;
+    width: 10%;
+    height: 10px;
+    border-radius: 15px;
+}
