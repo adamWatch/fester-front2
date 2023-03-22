@@ -1,3 +1,9 @@
+.second_baner {
+    font-size: 1.8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: .2rem;
+}
+
 .categories_container {
     display: flex;
     width: 100%;
