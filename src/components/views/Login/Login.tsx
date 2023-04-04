@@ -2,7 +2,7 @@ import React, { useContext, useState, SyntheticEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { LogginContext } from '../../Context/LogginContext';
 
-import './Login.css';
+import '../../styles/LoginRegister.css';
 
 export function Login() {
   const { isLogged, setIsLogged } = useContext(LogginContext);
