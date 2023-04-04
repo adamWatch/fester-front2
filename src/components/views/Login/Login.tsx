@@ -1,11 +1,33 @@
-import React, { useContext, useState, SyntheticEvent } from 'react';
+import React, {
+  useContext, useState, SyntheticEvent, useEffect,
+} from 'react';
 import { Link } from 'react-router-dom';
 import { LogginContext } from '../../Context/LogginContext';
 
 import '../../styles/LoginRegister.css';
+import { Btn } from '../../common/Btn/Btn';
+import { Notice } from '../../common/Notice/Notice';
+import { validationForm } from '../../utils/validationForm';
 
 export function Login() {
   const { isLogged, setIsLogged } = useContext(LogginContext);
+  const [notice, setNotice] = useState({
+    isVisible: false,
+    noticeText: '',
+    noticeColor: '',
+  });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNotice(() => ({
+        isVisible: false,
+        noticeText: '',
+        noticeColor: '',
+      }));
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [notice]);
 
   const [form, setForm] = useState({
     email: '',
@@ -19,10 +41,34 @@ export function Login() {
     }));
   };
 
-  const goLogin = (e:SyntheticEvent) => {
+  const goLogin = async (e:SyntheticEvent) => {
     e.preventDefault();
+    const notice = validationForm('login', form);
+    console.log(form);
+    setNotice(() => ({
+      isVisible: notice.isVisible,
+      noticeText: notice.noticeText,
+      noticeColor: notice.noticeColor,
+    }));
+    if (notice.noticeColor === 'red') return;
+    const res = await fetch('http://localhost:3021/login', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(form),
 
-    setIsLogged(!isLogged);
+    });
+    const data = await res.json();
+
+    setNotice(() => ({
+      isVisible: data.isVisible,
+      noticeText: data.noticeText,
+      noticeColor: data.noticeColor,
+    }));
+    if (data.noticeColor === 'green') {
+      setIsLogged(!isLogged);
+    }
   };
 
   return (
@@ -39,12 +85,13 @@ export function Login() {
           Password:
           <input type="password" id="password" name="password" required value={form.password} onChange={(e) => updateForm('password', e.target.value)} />
         </label>
-        <button type="submit">Log</button>
+        <Btn text="Log" typeBtn="submit" />
       </form>
       <div className="" />
       You not have account Please
       {' '}
-      <Link to="/register">Register</Link>
+      <Link className="link" to="/register">Register</Link>
+      {notice.isVisible && <Notice text={notice.noticeText} color={notice.noticeColor} />}
     </div>
   );
 }
