@@ -3,7 +3,7 @@
         "baseUrl": ".",
         "paths": {
             "types": [
-                "../mega-ads-back/types"
+                "../fester-back/types"
             ]
         }
     }
