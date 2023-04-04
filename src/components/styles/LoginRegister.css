@@ -13,14 +13,14 @@ body {
 .login_view {
     display: flex;
     position: fixed;
-    top: 25%;
+    top: 15%;
     left: 25%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgb(57, 26, 117);
     background: linear-gradient(34deg, rgba(57, 26, 117, 1) 30%, rgba(36, 10, 61, 1) 71%, rgba(58, 20, 101, 0.9752275910364145) 88%);
-    height: 60%;
+    height: 70%;
     width: 55%;
     border-radius: 10px;
     color: azure;
@@ -43,4 +43,15 @@ body {
 
 .login_form input {
     font-size: 1.8rem;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: yellow;
+    transition: .4s linear;
+}
+
+.link:hover {
+    color: rgb(142, 142, 10);
 }
