@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, {
   useContext, useState, SyntheticEvent, useEffect,
 } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LogginContext } from '../../Context/LogginContext';
 
 import '../../styles/LoginRegister.css';
@@ -10,24 +11,16 @@ import { Notice } from '../../common/Notice/Notice';
 import { validationForm } from '../../utils/validationForm';
 
 export function Login() {
-  const { isLogged, setIsLogged } = useContext(LogginContext);
+  const navigate = useNavigate();
+
+  /* @ts-ignore */
+  const [loggedIn, setLoggedIn] = useContext(LogginContext);
+
   const [notice, setNotice] = useState({
     isVisible: false,
     noticeText: '',
     noticeColor: '',
   });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setNotice(() => ({
-        isVisible: false,
-        noticeText: '',
-        noticeColor: '',
-      }));
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [notice]);
 
   const [form, setForm] = useState({
     email: '',
@@ -44,7 +37,7 @@ export function Login() {
   const goLogin = async (e:SyntheticEvent) => {
     e.preventDefault();
     const notice = validationForm('login', form);
-    console.log(form);
+
     setNotice(() => ({
       isVisible: notice.isVisible,
       noticeText: notice.noticeText,
@@ -60,21 +53,43 @@ export function Login() {
 
     });
     const data = await res.json();
-
     setNotice(() => ({
       isVisible: data.isVisible,
       noticeText: data.noticeText,
       noticeColor: data.noticeColor,
     }));
+
     if (data.noticeColor === 'green') {
-      setIsLogged(!isLogged);
+      setNotice(() => ({
+        isVisible: data.isVisible,
+        noticeText: data.noticeText,
+        noticeColor: data.noticeColor,
+      }));
+      setLoggedIn(() => ({
+        isLog: true,
+        idLog: data.id,
+      }));
+
+      navigate('/Home');
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNotice(() => ({
+        isVisible: false,
+        noticeText: '',
+        noticeColor: '',
+      }));
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [notice]);
 
   return (
     <div className="login_view">
       <h1 className="baner">Motivator</h1>
-      <h2>Log In</h2>
+      <h2>Log In </h2>
       <form className="login_form" onSubmit={goLogin}>
 
         <label htmlFor="email">
