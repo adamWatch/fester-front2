@@ -24,30 +24,31 @@ export function ExpCard(props: Props) {
   });
   const [progressBar, setProgressBar] = useState('0');
 
-  const handleExp = (currExp:number, currLvl:number) => {
+  const handleExp = (currExp:number, currLvl:number, expToLvl:number) => {
     const nextLvlIncrement = 50;
-    let expToLvl = 400;
+    let expToLvlIn = expToLvl;
     let currLvlIn = currLvl;
     let currExpIn = currExp;
 
-    if (currExpIn > expToLvl) {
-      while (currExpIn > expToLvl) {
-        currExpIn -= expToLvl;
-        expToLvl += nextLvlIncrement;
+    if (currExpIn > expToLvlIn) {
+      while (currExpIn > expToLvlIn) {
+        currExpIn -= expToLvlIn;
+        expToLvlIn += nextLvlIncrement;
         currLvlIn++;
       }
       setCategoryExp(() => ({
         currLvl: currLvlIn,
         currExp: currExpIn,
-        expToLvl,
+        expToLvl: expToLvlIn,
       }));
-      const progressPerc = String((currExpIn / expToLvl) * 100);
+      const progressPerc = String((currExpIn / expToLvlIn) * 100);
       const progressBarValue = `${progressPerc}%`;
+
       setProgressBar(progressBarValue);
     }
   };
 
-  handleExp(categoryExp.currExp, categoryExp.currLvl);
+  handleExp(categoryExp.currExp, categoryExp.currLvl, categoryExp.expToLvl);
 
   return (
     <div className="exp_card_container">
