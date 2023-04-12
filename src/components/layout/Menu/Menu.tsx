@@ -5,7 +5,7 @@ import './Menu.css';
 export function Menu() {
   return (
     <nav className="Menu">
-      <Link to="/">Home</Link>
+      <Link to="/Home">Home</Link>
       <Link to="/workout">Workout</Link>
       <Link to="/learning">Learning</Link>
       <Link to="/nutrition">Nutrition</Link>
