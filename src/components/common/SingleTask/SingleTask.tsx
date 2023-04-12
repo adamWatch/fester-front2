@@ -1,15 +1,29 @@
 import React from 'react';
 
 interface Props{
-    text:string;
+  id:string;
+  taskText:string;
+  dificultySelect:string;
+  routineSelect:string;
+  exp:string;
+  updateTask:any;
 }
 
 export function SingleTask(props:Props) {
-  const { text } = props;
+  const {
+    id, taskText, dificultySelect, routineSelect, exp, updateTask: taskDone,
+  } = props;
 
   return (
-    <th>
-      {text}
-    </th>
+    <tr id={id}>
+      <td>{taskText}</td>
+      <td>{dificultySelect}</td>
+      <td>{exp}</td>
+      <td>{routineSelect}</td>
+      <td>
+        <button type="button" onClick={() => { taskDone(exp); }}>Done</button>
+      </td>
+
+    </tr>
   );
 }
