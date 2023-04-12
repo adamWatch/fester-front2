@@ -1,5 +1,11 @@
 import React from 'react';
+import { Headers } from '../layout/Headers';
 
 export function Hobby() {
-  return <h1>Hobby is good</h1>;
+  return (
+    <>
+      <Headers />
+      <h1>Learning is whole life</h1>
+    </>
+  );
 }
