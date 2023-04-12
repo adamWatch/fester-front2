@@ -300,7 +300,7 @@ export function Workout() {
       </>
     );
   }
-  /// Todo wyświetlać wszystkie dodane elmenty
+  
   const taskDone = (exp:string) => {
     const expIn = Number(exp);
     updateData('workoutExp', expIn);
@@ -328,7 +328,7 @@ export function Workout() {
             {listTasksState.map((task) => <SingleTask id={task.id} taskText={task.taskText} dificultySelect={task.dificulty} routineSelect={task.routine} exp={task.exp} updateTask={taskDone} />)}
           </tbody>
         </table>
-
+        {/* Do Sprawdzjącego projekt Czemu po zmianie propsa data.workoutExp nie renderuje się od nowa cały komponent ExpCard Ten bład sprawił że nie dokończyłem apki   */}
         <ExpCard category="Workout" userName={data.username} currExp={data.workoutExp} executedTask={121} />
         <div className="edit_container">
           <button type="button" onClick={handleEdit}> Edit</button>
