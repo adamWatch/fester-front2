@@ -29,3 +29,46 @@ th {
 .task_table th {
     color: yellow;
 }
+
+/* adding task styles */
+.edit_container {
+    position: fixed;
+    top: 74%;
+    right: 10%;
+
+}
+
+.edit_container button {
+    font-size: 1.7rem;
+    padding: .5rem;
+    cursor: pointer;
+    background-color: purple;
+    color: azure;
+}
+
+.add_task_container {
+    display: flex;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.add_task_container tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.add_task_container input,
+.add_task_container select {
+    color: azure;
+    font-size: 1.5rem;
+    padding: .5rem;
+    background-color: rgb(93, 9, 93);
+}
