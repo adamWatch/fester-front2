@@ -10,16 +10,17 @@ import { Learning } from './components/Learning/Learning';
 import { Nutrition } from './components/Nutrition/Nutrition';
 import { Recreation } from './components/Recreation/Recreation';
 import { Hobby } from './components/Hobby/Hobby';
-import { LogginContext } from './components/Context/LogginContext';
+import { LogginContext, LogginContextType } from './components/Context/LogginContext';
 
 import { Login } from './components/views/Login/Login';
 import { Register } from './components/views/Register/Register';
 
 export function App() {
-  const [loggedIn, setLoggedIn] = useState({
+  const [loggedIn, setLoggedIn] = useState<LogginContextType>({
     isLog: false,
     idLog: '',
   });
+
   return (
     <div className="App">
 
